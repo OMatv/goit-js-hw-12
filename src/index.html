@@ -8,17 +8,18 @@
     <link rel="stylesheet" href="./css/styles.css" />
   </head>
   <body>
-    <load ="partials/header.html" />
+         <div class="searching-box">
+      <h1>Image Gallery</h1>
+      <form class="search-form" id="search-form">
+        <input type="text" name="searchQuery" autocomplete="off" id="search-input" placeholder="Enter search term"/>
+        <button class="search-btn" type="submit" name="submitBtn">Search</button>
+         </form>
 
-    <section>
-      <h1>Example page title</h1>
-      <!-- Path to images as from index.html file -->
-      <img src="./img/javascript.svg" alt="" />
-    </section>
-
-    <!-- Loads the specified .html file -->
-    <load ="partials/vite-promo.html" />
-
-    <script type="module" src="./main.js"></script>
+    <div  class="gallery " id="gallery"></div>
+    
+      <div class="loader" id="loader" ></div>
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <button id="load-more" style="display: none">Load more</button>
+    <script type="module" src="./main.js" defer></script>
   </body>
 </html>
