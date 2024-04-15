@@ -2,28 +2,36 @@
 <html lang="en">
   <head>
     <meta charset="UTF-8" />
-    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Vanilla App Template</title>
+    <title>Image Gallery</title>
     
     <script type="module" crossorigin src="/goit-js-hw-12/commonHelpers.js"></script>
-    <link rel="modulepreload" crossorigin href="/goit-js-hw-12/assets/vendor-d024759d.js">
-    <link rel="stylesheet" href="/goit-js-hw-12/assets/vendor-e5212ee8.css">
-    <link rel="stylesheet" href="/goit-js-hw-12/assets/index-9124f509.css">
+    <link rel="modulepreload" crossorigin href="/goit-js-hw-12/assets/vendor-f736e62a.js">
+    <link rel="stylesheet" href="/goit-js-hw-12/assets/vendor-4b066c51.css">
+    <link rel="stylesheet" href="/goit-js-hw-12/assets/index-24555eec.css">
   </head>
   <body>
-         <div class="searching-box">
+    <div class="searching-box">
       <h1>Image Gallery</h1>
       <form class="search-form" id="search-form">
-        <input type="text" name="searchQuery" autocomplete="off" id="search-input" placeholder="Enter search term"/>
-        <button class="search-btn" type="submit" name="submitBtn">Search</button>
-         </form>
+        <input
+          type="text"
+          name="searchQuery"
+          autocomplete="off"
+          id="search-input"
+          placeholder="Enter search term"
+        />
+        <button class="search-btn" type="submit" name="submitBtn">
+          Search
+        </button>
+      </form>
+    </div>
 
-    <div  class="gallery " id="gallery"></div>
-    
-      <div class="loader" id="loader" ></div>
-    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
-    <button id="load-more" style="display: none">Load more</button>
+    <div class="gallery" id="gallery"></div>
+
+    <div class="loader" id="loader">Loading...</div>
+    <button class="load-more-btn" id="load-more-btn">Load more</button>
+
     
   </body>
 </html>
