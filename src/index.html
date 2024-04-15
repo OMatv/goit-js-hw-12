@@ -2,24 +2,31 @@
 <html lang="en">
   <head>
     <meta charset="UTF-8" />
-    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Vanilla App Template</title>
+    <title>Image Gallery</title>
     <link rel="stylesheet" href="./css/styles.css" />
   </head>
   <body>
-         <div class="searching-box">
+    <div class="searching-box">
       <h1>Image Gallery</h1>
       <form class="search-form" id="search-form">
-        <input type="text" name="searchQuery" autocomplete="off" id="search-input" placeholder="Enter search term"/>
-        <button class="search-btn" type="submit" name="submitBtn">Search</button>
-         </form>
+        <input
+          type="text"
+          name="searchQuery"
+          autocomplete="off"
+          id="search-input"
+          placeholder="Enter search term"
+        />
+        <button class="search-btn" type="submit" name="submitBtn">
+          Search
+        </button>
+      </form>
+    </div>
 
-    <div  class="gallery " id="gallery"></div>
-    
-      <div class="loader" id="loader" ></div>
-      <button id="load-more-btn" style="display: none;">Load more</button>
-  
+    <div class="gallery" id="gallery"></div>
+
+    <div class="loader" id="loader">Loading...</div>
+    <button class="load-more-btn" id="load-more-btn">Load more</button>
 
     <script type="module" src="./main.js" defer></script>
   </body>
