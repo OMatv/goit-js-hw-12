@@ -57,8 +57,6 @@ document.addEventListener('DOMContentLoaded', () => {
     currentPage = 1;
     await fetchAndRenderImages(currentQuery, currentPage);
     gallery.style.display = 'flex';
-    loadMoreBtn.style.display = 'block';
-    document.documentElement.style.scrollBehavior = 'smooth';
   }
 
   async function fetchAndRenderImages(query, page) {
@@ -77,6 +75,8 @@ document.addEventListener('DOMContentLoaded', () => {
           message: "We're sorry, but you've reached the end of search results.",
           position: 'topRight',
         });
+      } else {
+        loadMoreBtn.style.display = 'block';
       }
     } catch (error) {
       iziToast.error({
@@ -84,16 +84,30 @@ document.addEventListener('DOMContentLoaded', () => {
         message: 'Failed to fetch images. Please try again later.',
         position: 'topRight',
       });
+      loadMoreBtn.style.display = 'none';
     }
   }
 
   async function loadMoreImages() {
     currentPage++;
+    const { hits } = await loadImages(currentQuery, currentPage);
+    if (hits.length === 0) {
+      loadMoreBtn.style.display = 'none';
+      iziToast.info({
+        title: 'Info',
+        message: "We're sorry, but you've reached the end of search results.",
+        position: 'topRight',
+      });
+      return;
+    }
+    renderImages(hits);
+    lightbox.refresh();
     const scrollDistance = cardHeight * 2;
-    await fetchAndRenderImages(currentQuery, currentPage);
     window.scrollBy({ top: scrollDistance, behavior: 'smooth' });
   }
 
   form.addEventListener('submit', handleSearchSubmit);
   loadMoreBtn.addEventListener('click', loadMoreImages);
+
+  loadMoreBtn.style.display = 'none';
 });
