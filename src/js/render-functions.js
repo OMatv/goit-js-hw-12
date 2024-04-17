@@ -1,14 +1,8 @@
-export function clearGallery() {
-  const galleryElement = document.querySelector('.gallery');
-  galleryElement.innerHTML = '';
-}
-
 export function renderImages(images) {
   const galleryElement = document.querySelector('.gallery');
-  let imageHTML = '';
 
   images.forEach(image => {
-    imageHTML += `
+    const imageHTML = `
       <a class="gallery__item" href="${image.largeImageURL}" target="_blank">
         <figure class="gallery__figure">
           <img class="gallery__img" src="${image.webformatURL}" alt="${image.tags}" loading="lazy">
@@ -20,7 +14,12 @@ export function renderImages(images) {
           </figcaption>
         </figure>
       </a>`;
-  });
 
-  galleryElement.innerHTML += imageHTML;
+    galleryElement.insertAdjacentHTML('beforeend', imageHTML);
+  });
+}
+
+export function clearGallery() {
+  const galleryElement = document.querySelector('.gallery');
+  galleryElement.innerHTML = '';
 }
